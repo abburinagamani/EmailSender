@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>AI Email Generator</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="prompt" class="form-label">Describe your email:</label>
+            <input type="text" class="form-control" name="prompt" id="prompt" placeholder="e.g. Invite customers to summer sale">
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Email</button>
+    </form>
+
+    {% if generated_email %}
+        <hr>
+        <h4>Generated Email:</h4>
+        <pre>{{ generated_email }}</pre>
+    {% endif %}
+</div>
+{% endblock %}

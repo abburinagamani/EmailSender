@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Send Email</h2>
+
+    {% if message %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="to" class="form-label">To</label>
+            <input type="email" class="form-control" id="to" name="to" required>
+        </div>
+        <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" id="subject" name="subject" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="attachments" class="form-label">Attachments</label>
+            <input type="file" class="form-control" id="attachments" name="attachments" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Email</button>
+    </form>
+</div>
+
+<!-- CKEditor Script -->
+<script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('message');
+</script>
+{% endblock %}

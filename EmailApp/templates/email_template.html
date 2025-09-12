@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .header { font-size: 20px; font-weight: bold; color: #2b78e4; }
+        .footer { margin-top: 30px; font-size: 12px; color: gray; }
+        .attachments { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <p class="header">Hello {{ to_email }},</p>
+
+    <p>This is an automated email sent from your Django Email Sender on {{ date }}.</p>
+
+    {% if file_names %}
+    <div class="attachments">
+        <strong>Attached Files:</strong>
+        <ul>
+            {% for name in file_names %}
+                <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <p>No files were attached to this email.</p>
+    {% endif %}
+
+    <div class="footer">
+        — Sent via Django Email Sender
+    </div>
+</body>
+</html>

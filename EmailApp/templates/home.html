@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="text-center">
+  <h1 class="display-4">
+  <i class="fa fa-envelope"></i> Welcome to Email Sender
+</h1>
+  <p class="lead">Send professional emails easily using our secure platform.</p>
+  <a href="{% url 'send_email' %}" class="btn btn-primary btn-lg mt-3">Send Your First Email</a>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</div>
+
+<hr class="my-5">
+
+<div class="row text-center">
+  <div class="col-md-4">
+    <h3><i class="fa fa-lock"></i> Secure</h3>
+    <p>Your email credentials are safe and encrypted.</p>
+  </div>
+  <div class="col-md-4">
+    <h3><i class="fa fa-bolt"></i> Fast</h3>
+    <p>Emails are delivered instantly via SMTP.</p>
+  </div>
+  <div class="col-md-4">
+    <h3><i class="fa fa-bullseye"></i> Reliable</h3>
+    <p>Track sending status with clear feedback messages.</p>
+  </div>
+</div>
+
+
+{% endblock %}
